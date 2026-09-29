@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LE PIZZIE · Pedidos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="/pizza.png">
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+</head>
+<body>
+  <header class="topbar">
+    <div class="marca">
+  <span class="icono-pizza" aria-hidden="true"></span>
+  <span>LE PIZZIE</span>
+</div>
+    <button id="btn-carrito" class="btn btn-primario">
+      Carrito <span id="badge" class="badge">0</span>
+    </button>
+  </header>
+
+  <main id="menu" class="contenedor"></main>
+
+  <div id="overlay" class="overlay oculto"></div>
+  <aside id="panel" class="panel oculto">
+    <div class="panel-head">
+      <h2>Tu pedido</h2>
+      <button id="btn-cerrar" class="btn-icono">✕</button>
+    </div>
+    <div id="panel-body" class="panel-body"></div>
+  </aside>
+
+  <script src="app.js"></script>
+  <div id="toast" class="toast oculto"></div>
+</body>
+</html>

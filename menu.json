@@ -1,0 +1,12 @@
+[
+  { "id": "p1", "categoria": "Pizzas", "nombre": "Margarita", "descripcion": "Tomate, mozzarella y albahaca", "precio": 9.00 },
+  { "id": "p2", "categoria": "Pizzas", "nombre": "Napolitana", "descripcion": "Tomate, mozzarella, ajo y perejil", "precio": 9.50 },
+  { "id": "p3", "categoria": "Pizzas", "nombre": "Pepperoni", "descripcion": "Mozzarella y pepperoni picante", "precio": 11.00 },
+  { "id": "p4", "categoria": "Pizzas", "nombre": "Cuatro Quesos", "descripcion": "Mozzarella, provolone, azul y parmesano", "precio": 12.00 },
+  { "id": "e1", "categoria": "Empanadas", "nombre": "Empanada de carne", "descripcion": "Cortada a cuchillo", "precio": 2.00 },
+  { "id": "e2", "categoria": "Empanadas", "nombre": "Empanada de jamón y queso", "descripcion": "", "precio": 2.00 },
+  { "id": "b1", "categoria": "Bebidas", "nombre": "Coca-Cola 1.5L", "descripcion": "", "precio": 3.00 },
+  { "id": "b2", "categoria": "Bebidas", "nombre": "Agua mineral 500ml", "descripcion": "", "precio": 1.50 },
+  { "id": "b3", "categoria": "Bebidas", "nombre": "Cerveza artesanal", "descripcion": "Rubia 500ml", "precio": 4.50 },
+  { "id": "d1", "categoria": "Postres", "nombre": "Tiramisú", "descripcion": "Porción casera", "precio": 4.00 }
+]
