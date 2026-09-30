@@ -76,9 +76,29 @@ app.post('/api/pedidos', async (req, res) => {
     // Recalculamos precios en el servidor (nunca confiar en el cliente)
     const lineas = [];
     for (const item of items) {
+      const cantidad = Math.max(1, Math.min(20, parseInt(item.cantidad, 10) || 1));
+
+      // Pizza por mitades: id con formato "p1+p3"
+      if (typeof item.id === 'string' && item.id.includes('+')) {
+        const [a, b] = item.id.split('+');
+        const p1 = MENU.find(p => p.id === a);
+        const p2 = MENU.find(p => p.id === b);
+        if (!p1 || !p2 || a === b) continue;
+
+        const precio = +((p1.precio + p2.precio) / 2).toFixed(2);
+        lineas.push({
+          id: item.id,
+          nombre: `Mitad ${p1.nombre} / Mitad ${p2.nombre}`,
+          precio,
+          cantidad,
+          subtotal: +(precio * cantidad).toFixed(2),
+        });
+        continue;
+      }
+
+      // Producto normal
       const producto = MENU.find(p => p.id === item.id);
       if (!producto) continue;
-      const cantidad = Math.max(1, Math.min(20, parseInt(item.cantidad, 10) || 1));
       lineas.push({
         id: producto.id,
         nombre: producto.nombre,

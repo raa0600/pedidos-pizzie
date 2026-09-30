@@ -828,3 +828,277 @@ body::after {
   .seguimiento .estado { font-size: .72rem; padding: 8px 14px; }
   .btn-grande { font-size: .78rem; letter-spacing: var(--tracking-medio); }
 }
+
+/* ============================================================
+   MODAL DE MITADES
+   ============================================================ */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-contenido {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 20, 28, 0.95), rgba(15, 15, 22, 0.98));
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border: 1px solid var(--blanco-15);
+  border-radius: var(--radio);
+  width: min(720px, 100%);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--blanco-08);
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-fuerte);
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-sub {
+  margin: 0 0 20px;
+  font-size: .85rem;
+  color: var(--blanco-60);
+}
+
+.mitad-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.mitad-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mitad-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-medio);
+  color: var(--blanco-60);
+  font-weight: 600;
+}
+
+.mitad-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.mitad-opcion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--blanco-15);
+  background: var(--blanco-04);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: .82rem;
+  color: var(--blanco-90);
+  text-align: left;
+  font-family: inherit;
+  transition: background .15s, border-color .15s;
+}
+
+.mitad-opcion:hover {
+  background: var(--blanco-08);
+  border-color: var(--blanco-40);
+}
+
+.mitad-opcion.seleccionada {
+  background: rgba(255, 122, 26, 0.15);
+  border-color: var(--naranja);
+  color: var(--blanco);
+}
+
+.mitad-opcion .op-nombre {
+  flex: 1;
+}
+
+.mitad-opcion .op-precio {
+  font-weight: 600;
+  font-size: .78rem;
+  color: var(--blanco-60);
+}
+
+.mitad-opcion.seleccionada .op-precio {
+  color: var(--naranja-brillo);
+}
+
+.mitad-resumen {
+  background: var(--blanco-04);
+  border: 1px solid var(--blanco-15);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mitad-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mitad-nombre {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  color: var(--blanco-90);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-suave);
+  font-size: .75rem;
+}
+
+.mitad-bar {
+  width: 2px;
+  height: 24px;
+  background: var(--naranja);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 122, 26, 0.6);
+}
+
+.mitad-precio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--blanco-08);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-medio);
+  color: var(--blanco-60);
+  font-weight: 600;
+}
+
+.mitad-precio strong {
+  font-size: 1.2rem;
+  color: var(--blanco);
+  text-shadow: 0 0 12px rgba(255, 122, 26, 0.45);
+}
+
+.modal-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-top: 1px solid var(--blanco-08);
+}
+
+@media (max-width: 600px) {
+  .mitad-selector { grid-template-columns: 1fr; }
+  .mitad-lista { max-height: 160px; }
+  .modal-contenido { max-height: 95vh; }
+  .modal-footer { flex-direction: column-reverse; }
+  .modal-footer .btn { width: 100%; }
+}
+
+/* Tarjeta especial "Por mitades" */
+.plato-mitad {
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.15), rgba(255, 122, 26, 0.05));
+  border-color: rgba(255, 122, 26, 0.4);
+}
+
+.plato-mitad:hover {
+  border-color: var(--naranja);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 122, 26, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.plato-mitad h3 { color: var(--naranja-brillo); }
+
+.mitad-badge {
+  display: inline-block;
+  font-size: .55rem;
+  background: var(--naranja);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-medio);
+  font-weight: 700;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ============================================================
+   AVISO DE TIEMPO DE ESPERA
+   ============================================================ */
+.aviso-tiempo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 122, 26, 0.1);
+  border: 1px solid rgba(255, 122, 26, 0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  color: var(--naranja-brillo);
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-suave);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.aviso-tiempo .tiempo-icono {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(255, 122, 26, 0.5));
+}
+
+.aviso-tiempo .tiempo-texto {
+  flex: 1;
+}
+
+.aviso-tiempo .tiempo-texto strong {
+  display: block;
+  color: var(--blanco);
+  font-size: .95rem;
+  margin-top: 2px;
+  letter-spacing: var(--tracking-medio);
+  text-shadow: 0 0 10px rgba(255, 122, 26, 0.4);
+}
