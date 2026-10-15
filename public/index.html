@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LE PIZZIE · Pedidos</title>
-  <link rel="icon" type="image/png" href="/favicon.png?v=1">
-  <link rel="preload" as="image" href="/pizza.png">
-  <link rel="stylesheet" href="styles.css" />
+  <title>Cargando…</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg?v=2">
+  <link rel="preload" as="image" href="/logo.svg">
+  <link rel="stylesheet" href="/styles.css?v=3" />
+  <script src="/iconos.js"></script>
 </head>
 <body>
   <header class="topbar">
     <div class="marca">
-      <span class="icono-pizza" aria-hidden="true"></span>
-      <span>LE PIZZIE</span>
+      <img class="logo-marca" src="/logo.svg" alt="" aria-hidden="true">
+      <span id="marca-nombre">·</span>
     </div>
     <button id="btn-carrito" class="btn btn-primario">
       Carrito <span id="badge" class="badge">0</span>
@@ -30,51 +31,12 @@
     <div id="panel-body" class="panel-body"></div>
   </aside>
 
-  <!-- Modal para elegir mitades -->
-  <div id="modal-mitad" class="modal oculto">
-    <div class="modal-overlay" data-cerrar-modal></div>
-    <div class="modal-contenido">
-      <div class="modal-head">
-        <h2>Pizza por mitades</h2>
-        <button class="btn-icono" data-cerrar-modal type="button">✕</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-sub">Elige dos sabores distintos, uno para cada mitad.</p>
-
-        <div class="mitad-selector">
-          <div class="mitad-panel">
-            <label class="mitad-label">Primera mitad</label>
-            <div id="mitad-1-lista" class="mitad-lista"></div>
-          </div>
-          <div class="mitad-panel">
-            <label class="mitad-label">Segunda mitad</label>
-            <div id="mitad-2-lista" class="mitad-lista"></div>
-          </div>
-        </div>
-
-        <div class="mitad-resumen">
-          <div class="mitad-preview">
-            <span id="mitad-1-nombre" class="mitad-nombre">—</span>
-            <span class="mitad-bar"></span>
-            <span id="mitad-2-nombre" class="mitad-nombre">—</span>
-          </div>
-          <div class="mitad-precio">
-            <span>Precio</span>
-            <strong id="mitad-precio">$0.00</strong>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-cerrar-modal type="button">Cancelar</button>
-        <button class="btn btn-primario" id="btn-agregar-mitad" type="button" disabled>
-          Agregar al carrito
-        </button>
-      </div>
-    </div>
-  </div>
+  <!-- Modal genérico (se llena desde JS) -->
+  <div id="modal-mitad" class="modal oculto"></div>
 
   <div id="toast" class="toast oculto"></div>
 
-  <script src="app.js"></script>
+  <script src="/dialogos.js"></script>
+  <script src="/app.js?v=3"></script>
 </body>
 </html>
